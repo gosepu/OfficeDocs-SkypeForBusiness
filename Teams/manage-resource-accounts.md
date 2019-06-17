@@ -165,7 +165,7 @@ Once you do that, you can delete the resource account from the O365 admin portal
 
 ## Troubleshooting
 
-In case you do not see the phone number assigned to the resource account on the Teams Admin Center and you are unable to assign the number from there, please check the following:
+1. In case you do not see the phone number assigned to the resource account on the Teams Admin Center and you are unable to assign the number from there, please check the following:
 
 ``` Powershell
 Get-MsolUser -UserPrincipalName "username@contoso.com"| fl objectID,department
@@ -178,6 +178,14 @@ Set-MsolUser -ObjectId  -Department "Microsoft Communication Application Instanc
 ```
 > [!NOTE]
 > Refresh the Teams Admin center webpage after running the cmldet, and you should be able to assign the number correctly.
+
+2. If the above has been confirmed, the phone number you are trying to assign, might not match the location of the resource account, you're trying to assign the phone number to. Please assure the country code of the service phone number you're trying to assign to the resource account matches the Location chosen for the resource account. This can be done via the Office 365 Admin Center > Users > Active Users. Select the resource account affected and set the correct location, whenever needed. From PowerShell, you can also validate if the resource account location is the issue. If the error thrown is similar to the image below, it means you're facing this issue:
+
+!
+
+3. When searching for service phone numbers to assign to a resource account, from the Teams Admin Center, if you type under the "Assigned phone number" field, for example +44, no number is returned in the search. Please type 44 instead and, all the service phone numbers for the respective country code will be shown. Please note this assumes Location of the resource account matches the country code of the number you're trying to assign, since usage location defined for the Resource Account when licensing, must match the location country code.
+
+
 
 ## Related Information
 
