@@ -176,7 +176,7 @@ New-CsOnlineApplicationInstance -UserPrincipalName testra1@contoso.com -Applicat
    > [!NOTE]
    > It's easiest to set the online phone number using the Microsoft Teams admin center, as described previously.
 
-   To assign a direct routing phone number to a resource account (homed either in Microsoft Teams or Skype For Business Server 2019), use the following cmdlet for Skype for Business Online Powershell:
+   To assign a direct routing phone number to a resource account (homed in Microsoft Teams), use the following cmdlet for Skype for Business Online Powershell:
 
    ``` Powershell
    Set-CsOnlineApplicationInstance -Identity appinstance01@contoso.com -OnpremPhoneNumber +14250000000
